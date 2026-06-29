@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Case progress
+{% endblock %}
+
+{% block header %}
+  {% include "/includes/head-dps-dp.html" %} 
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+  text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+  <span class="govuk-caption-m govuk-!-margin-bottom-2 govuk-flex">
+    <abbr title="Case reference number" style="text-decoration: none">CRN</abbr>: X123456
+    <span class="govuk-!-padding-left-3 govuk-!-padding-right-3 hide-mobile">|</span>
+    Date of birth: 20 Feb 1975 (47 years old)
+    <span class="govuk-!-padding-left-3 govuk-!-padding-right-3 hide-mobile">|</span>
+    Tier:&nbsp;<a href="#">B3</a>
+    
+    <!-- ROSH badge -->
+
+    <div class="govuk-!-margin-left-4">
+      <div class="predictor-timeline-item predictor-timeline-item--high">
+        <span class="predictor-timeline-item__level"><strong>ROSH</strong> HIGH</span>
+      </div>
+    </div>       
+
+    <!-- RSR badge & score -->
+    
+    <div class="govuk-!-margin-left-4">
+      <div class="predictor-timeline-item predictor-timeline-item--medium">
+        <span class="predictor-timeline-item__level"><strong>RSR</strong> MEDIUM</span>
+        <span class="predictor-timeline-item__score"> 3</span>
+      </div>
+    </div>
+  </span>
+  Alex River
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">  
+    <h2 class="govuk-heading-l">TBC</h2>
+    <!--<p class="govuk-body">NDelius shows Alex is eligible for the OPD pathway.</p>-->
+    <!--<p class="govuk-body">This information is taken from NDelius. If you need to provide more information to the delivery partner about the OPD pathway, you will need to contact them.</p>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          OPD community pathway status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">Services not appropriate /needed at this time 4</p>
+        </dd>   
+      </div>
+    </dl>-->
+
+   
+    <!--<div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="event-name">
+          Enter details of the OPD link worker
+        </label>
+      </h1>
+      <input class="govuk-input" id="event-name" name="eventName" type="text">
+    </div>-->
+
+    <form action="task-list-6" method="post" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
