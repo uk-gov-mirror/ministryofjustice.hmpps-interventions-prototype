@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Case progress
+{% endblock %}
+
+{% block header %}
+  {% include "/includes/head-dps-dp.html" %} 
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({
+  text: "Back",
+href: "javascript:history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+  <span class="govuk-caption-m govuk-!-margin-bottom-2 govuk-flex">
+    <abbr title="Case reference number" style="text-decoration: none">CRN</abbr>: X123456
+    <span class="govuk-!-padding-left-3 govuk-!-padding-right-3 hide-mobile">|</span>
+    Date of birth: 20 Feb 2003 (23 years old)
+    <span class="govuk-!-padding-left-3 govuk-!-padding-right-3 hide-mobile">|</span>
+    Tier:&nbsp;<a href="#">B3</a>
+
+    <!-- ROSH badge -->
+
+    <div class="govuk-!-margin-left-4">
+      <div class="predictor-timeline-item predictor-timeline-item--high">
+        <span class="predictor-timeline-item__level"><strong>ROSH</strong> HIGH</span>
+      </div>
+    </div>
+
+    <!-- RSR badge & score -->
+
+    <div class="govuk-!-margin-left-4">
+      <div class="predictor-timeline-item predictor-timeline-item--medium">
+        <span class="predictor-timeline-item__level"><strong>RSR</strong> MEDIUM</span>
+        <span class="predictor-timeline-item__score"> 3</span>
+      </div>
+    </div>
+  </span>
+  Alex River
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+  <h2 class="govuk-heading-l">Recommended region</h2>
+
+</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">  
+    <p class="govuk-body">As Alex's PDU is currently Hammersmith, Fulham, Kensington, Chelsea and Westminster, the recommended delivery partner region is <strong>London for 18 to 25s</strong>.</p>
+    <p class="govuk-body">The delivery partner is <strong>Ingeus UK Limited</strong>.</p>
+
+
+
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          See which PDUs are covered by this region
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+           <li>Barking and Dagenham and Havering</li>
+  <li>Brent</li>
+  <li>Camden, Islington</li>
+          <li>Croydon</li>
+          <li>Ealing and Hillingdon</li>
+          <li>Enfield and Haringey</li>
+          <li>Greenwich and Bexley</li>
+          <li>Hackney and City</li>
+          <li>Hammersmith, Fulham, Kensington, Chelsea and Westminster</li>
+          <li>Harrow and Barnet</li>
+          <li>Kingston, Richmond and Hounslow</li>
+          <li>Lambeth</li>
+          <li>Lewisham and Bromley</li>
+          <li>Newham</li>
+          <li>Redbridge and Waltham Forest</li>
+          <li>Southwark</li>
+          <li>Tower Hamlets</li>
+          <li>Wandsworth, Merton and Sutton</li>
+        </ul>
+      </div>
+    </details>
+
+
+ 
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Do you want to make a referral to London?
+          </h2>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              No - select a different region
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <form action="task-list-initial" method="post" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
